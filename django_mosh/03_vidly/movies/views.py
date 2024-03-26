@@ -5,5 +5,4 @@ from .models import Movies
 # Create your views here.
 def  index(request) :
     movies = Movies.objects.all();
-    movie_names = ', '.join([m.title for m in movies])
-    return HttpResponse(movie_names);
+    return render(request, 'index.html', {'movies' : movies})
